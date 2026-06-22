@@ -5,6 +5,8 @@
 
 > **78 production-ready AI agent skills** — reusable instruction packages that give coding agents domain expertise they don't have out of the box. Works with **Claude Code**, **MiMo Code**, **OpenAI Codex**, **Gemini CLI**, **Cursor**, and more.
 
+> **If you find this useful, please give it a star!** It helps others discover the project and motivates us to keep adding more skills. Click the ⭐ button at the top right of this page.
+
 ---
 
 ## What Are AI Skills?
@@ -25,29 +27,153 @@ Skills load **progressively**. At session start, the agent sees only each skill'
 
 ## Quick Install
 
+**Find your agent — copy, paste, done:**
+
+| Agent | Install Path | One-liner |
+|-------|-------------|-----------|
+| Claude Code | `~/.claude/skills/` | `cp -r skills/* ~/.claude/skills/` |
+| MiMo Code | `~/.config/mimocode/skills/` | `cp -r skills/* ~/.config/mimocode/skills/` |
+| OpenAI Codex | `~/.codex/skills/` | `cp -r skills/* ~/.codex/skills/` |
+| Gemini CLI | `~/.gemini/skills/` | `cp -r skills/* ~/.gemini/skills/` |
+| Cursor | `.cursor/rules/` | See [Cursor](#cursor) |
+| Windsurf | `.windsurf/skills/` | `cp -r skills/* .windsurf/skills/` |
+| Kilo Code | `.kilocode/rules/` | See [Kilo Code](#kilo-code) |
+| OpenCode | `.opencode/skills/` | `cp -r skills/* .opencode/skills/` |
+| Augment | `.augment/rules/` | See [Augment](#augment) |
+| Hermes Agent | `~/.hermes/skills/` | `cp -r skills/* ~/.hermes/skills/ai-skills-hub/` |
+| Mistral Vibe | `~/.vibe/skills/` | `cp -r skills/* ~/.vibe/skills/ai-skills-hub/` |
+| Antigravity | `~/.gemini/antigravity/skills/` | See [Antigravity](#antigravity) |
+
 ### Claude Code
 
 ```bash
-# Clone the repository
 git clone https://github.com/YOUR_USERNAME/ai-skills-hub.git
 cd ai-skills-hub
-
-# Copy skills to your Claude Code directory
 cp -r skills/* ~/.claude/skills/
 ```
 
 ### MiMo Code
 
 ```bash
-# Copy skills to MiMo Code directory
+git clone https://github.com/YOUR_USERNAME/ai-skills-hub.git
+cd ai-skills-hub
 cp -r skills/* ~/.config/mimocode/skills/
 ```
 
-### Manual Installation
+### OpenAI Codex
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/ai-skills-hub.git
+cd ai-skills-hub
+cp -r skills/* ~/.codex/skills/
+```
+
+### Gemini CLI
+
+```bash
+git clone https://github.com/YOUR_USERNAME/ai-skills-hub.git
+cd ai-skills-hub
+cp -r skills/* ~/.gemini/skills/
+```
+
+### Cursor
+
+```bash
+git clone https://github.com/YOUR_USERNAME/ai-skills-hub.git
+cd ai-skills-hub
+# Copy skills as .mdc rules
+for skill in skills/*/SKILL.md; do
+  name=$(basename $(dirname "$skill"))
+  mkdir -p .cursor/rules
+  cp "$skill" ".cursor/rules/${name}.mdc"
+done
+```
+
+### Windsurf
+
+```bash
+git clone https://github.com/YOUR_USERNAME/ai-skills-hub.git
+cd ai-skills-hub
+mkdir -p .windsurf/skills
+cp -r skills/* .windsurf/skills/
+```
+
+### Aider
+
+```bash
+git clone https://github.com/YOUR_USERNAME/ai-skills-hub.git
+cd ai-skills-hub
+# Aider reads from CONVENTIONS.md in project root
+cat skills/*/SKILL.md > CONVENTIONS.md
+```
+
+### Kilo Code
+
+```bash
+git clone https://github.com/YOUR_USERNAME/ai-skills-hub.git
+cd ai-skills-hub
+mkdir -p .kilocode/rules
+for skill in skills/*/SKILL.md; do
+  name=$(basename $(dirname "$skill"))
+  cp "$skill" ".kilocode/rules/${name}.md"
+done
+```
+
+### OpenCode
+
+```bash
+git clone https://github.com/YOUR_USERNAME/ai-skills-hub.git
+cd ai-skills-hub
+mkdir -p .opencode/skills
+cp -r skills/* .opencode/skills/
+```
+
+### Augment
+
+```bash
+git clone https://github.com/YOUR_USERNAME/ai-skills-hub.git
+cd ai-skills-hub
+mkdir -p .augment/rules
+for skill in skills/*/SKILL.md; do
+  name=$(basename $(dirname "$skill"))
+  cp "$skill" ".augment/rules/${name}.md"
+done
+```
+
+### Hermes Agent
+
+```bash
+git clone https://github.com/YOUR_USERNAME/ai-skills-hub.git
+cd ai-skills-hub
+mkdir -p ~/.hermes/skills/ai-skills-hub
+cp -r skills/* ~/.hermes/skills/ai-skills-hub/
+```
+
+### Mistral Vibe
+
+```bash
+git clone https://github.com/YOUR_USERNAME/ai-skills-hub.git
+cd ai-skills-hub
+mkdir -p ~/.vibe/skills/ai-skills-hub
+cp -r skills/* ~/.vibe/skills/ai-skills-hub/
+```
+
+### Antigravity
+
+```bash
+git clone https://github.com/YOUR_USERNAME/ai-skills-hub.git
+cd ai-skills-hub
+mkdir -p ~/.gemini/antigravity/skills/ai-skills-hub
+cp -r skills/* ~/.gemini/antigravity/skills/ai-skills-hub/
+```
+
+### Universal (Any Agent)
+
+```bash
+git clone https://github.com/YOUR_USERNAME/ai-skills-hub.git
+cd ai-skills-hub
 # Copy any skill folder to your agent's skills directory
+cp -r skills/my-skill /path/to/your/agent/skills/
 ```
 
 ---
